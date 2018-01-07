@@ -1,0 +1,266 @@
+/* ===========================================
+		//author	: 	Joseph Appeah   //
+		//desc		: 	sport trader css//
+============================================*/
+
+/*================================
+//fonts//
+================================*/
+@font-face {
+    font-family:Dancing Script;
+    src: url('../fonts/Dancing_Script/DancingScript-Regular.ttf');
+}
+
+@font-face {
+    font-family:Lobster;
+    src: url('../fonts/Lobster/Lobster-Regular.ttf');
+}
+
+@font-face {
+    font-family:Exo;
+    src: url('../fonts/Exo/Exo-Regular.ttf');
+}
+
+@font-face {
+    font-family:Josefin Sans;
+    src: url('../fonts/Josefin_Sans/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+    font-family:Lato;
+    src: url('../fonts/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family:Pacifico;
+    src: url('../fonts/Pacifico/Pacifico-Regular.ttf');
+}
+
+@font-face {
+    font-family:Raleway;
+    src: url('../fonts/Raleway/Raleway-ExtraLight.ttf');
+}
+
+
+/*================================
+//general//
+================================*/
+
+html {
+    height: 100% !important;
+    width: 100% !important;
+}
+body {
+    height: 100% !important;
+    width: 100% !important;
+	padding-top:150px !important;
+}
+
+.a-submit-button {
+	font-family:Raleway !important;
+	width: 100%;
+	height: 41px;
+	border-radius: 2px;
+	font-size: 17px;
+	border: 1px solid #B71C1C;
+	outline: none !important;
+    color: white;
+    background: #F44336;
+}
+
+.a-submit-button:hover {
+  	box-shadow: 0 12px 10px -10px #757575;
+  	transition: 250ms linear;
+}
+
+.an-input-field{
+    padding: 8px;
+    font-family:Raleway !important;
+    width: 100%;
+    height: 41px;
+    border-radius: 2px;
+    font-size: 17px;
+    border: 1px solid #757575;
+    outline: none !important;
+    margin-bottom: 10px;
+
+    -moz-box-shadow:    inset 0 1px 5px #BDBDBD;
+    -webkit-box-shadow: inset 0 1px 5px #BDBDBD;
+    box-shadow:         inset 0 1px 5px #BDBDBD;
+}
+
+.an-input-field:hover {
+    border: 1px solid #a6a6a6;
+    -moz-box-shadow:    inset 0 1px 5px #BDBDBD;
+    -webkit-box-shadow: inset 0 1px 5px #BDBDBD;
+    box-shadow:         inset 0 1px 5px #BDBDBD;
+}
+
+.database-results-container {
+    padding-top: 20px;
+    overflow:scroll;
+}
+
+.result-table{
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 2px !important;
+}
+
+.table-heading{
+    width: 100%;
+    height: 40px !important;
+    font-family: Josefin Sans !important;
+    font-size: 16px;
+    text-transform: uppercase !important;
+    border: 1px solid #bdbdbd;
+    background: white !important;
+}
+
+.table-heading-entry {
+    width: 20%;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.table-row{
+    width: 100%;
+    height: 35px !important;
+    font-family: Josefin Sans !important;
+    font-size: 14px;
+    border: 1px solid #bdbdbd;
+    background: white !important;
+}
+
+.table-row-entry {
+    width: 20%;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.result-title {
+    font-family: Josefin Sans !important;
+    font-weight: 200px !important;
+    font-size: 25px;
+    height: 50px;
+    color : #424242;
+    padding-top: 9px;
+    padding-left: 10px;
+    background: white;
+    border: 1px solid #bdbdbd;
+    width: 100%;
+
+    -moz-box-shadow:    inset 0 1px 5px #BDBDBD;
+    -webkit-box-shadow: inset 0 1px 5px #BDBDBD;
+    box-shadow:         inset 0 1px 5px #BDBDBD;
+}
+
+.navbar {
+    border-top: 1px solid #E0E0E0;
+    height: 90px !important;
+    color: transparent !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+.home-navbar {
+    border-top: 1px solid #E0E0E0;
+    height: 60px !important;
+    color: transparent !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.no-padding {
+    padding: 0px 0px 0px 0px !important;
+    height: 100%; 
+    width: 100%;
+}
+
+.home-navbar-brand {
+    font-size: 20px;
+    font-family: Pacifico;
+    margin-top: 40px !important;
+    color: #DD2C00 !important;
+    padding-left: 20px;
+}
+
+.navbar-brand {
+    font-size: 33px;
+    font-family: Pacifico;
+    margin-top: 17px;
+    color: #DD2C00 !important;
+
+    padding-left: 20px;
+}
+/*================================
+//general//
+================================*/
+.website-card {
+    width: 250px !important;
+    height: 250px !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.website-card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transition: 250ms linear;
+}
+
+.website-card-title{
+    text-align: center !important;
+    font-size: 17px;
+    font-family: Raleway;
+    margin-top: 13px;
+    font-weight: bold;
+}
+
+.website-card-image-div {
+    width: 250px !important;
+    height: 200px !important;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.website-card-image {
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+.header {
+    height: 85% !important;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.header-text{
+    font-size: 60px !important;
+    font-family: Raleway !important;
+    padding-left:30px; 
+    font-weight: 100px !important;
+    text-align: left;
+}
+
+.home-content {
+    height: 100% !important;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.info-text {
+    font-family:Josefin Sans !important;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer-text{
+    font-family:Josefin Sans !important;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 30px;
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.footer {
+   background: #e0e0e0;
+   height: 15% !important;
+   border-bottom: 1px solid #9E9E9E;
+}

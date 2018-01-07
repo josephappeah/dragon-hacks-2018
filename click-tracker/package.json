@@ -1,0 +1,28 @@
+{
+  "name": "js-html-qa",
+  "version": "1.0.0",
+  "description": "simple js library/app that allows creators to track content that users interact with on their web pages",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephappeah/dragon-hacks-2018.git"
+  },
+  "author": "joseph appeah, agastya sinha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephappeah/dragon-hacks-2018/issues"
+  },
+  "homepage": "https://github.com/josephappeah/dragon-hacks-2018#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "firebase": "^4.8.1",
+    "firebase-admin": "^5.7.0",
+    "log4js": "^2.4.1",
+    "node-sql-db": "^1.1.2",
+    "nodemon": "^1.14.8"
+  }
+}
