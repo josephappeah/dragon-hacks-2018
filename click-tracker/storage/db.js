@@ -22,7 +22,7 @@ var db = new SQL.Db({
 	    [{
 	        name: "click_tracker",
 	        sql : [
-	                "create table if not exists websites (id integer primary key auto_increment, name varchar(256), page_url varchar(256), owner integer, owner_uid varchar(256), tracking varchar(5000), active boolean, entry_time timestamp)",
+	                "create table if not exists websites (name varchar(256) primary key, page_url varchar(256), owner integer, owner_uid varchar(256), tracking varchar(5000), active boolean, entry_time timestamp)",
 	                "create table if not exists users (id integer primary key auto_increment, uid varchar(256), email varchar(256), email_verified boolean, phone_number varchar(30), display_name varchar(256), photo_url varchar(256), disabled boolean)",
 	        	]
 	    }]

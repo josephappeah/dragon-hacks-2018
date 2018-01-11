@@ -126,14 +126,16 @@ module.exports.signup = function(new_user_object) {
 	  		disabled: false
 		})
   		.then(function(userRecord) {
-            logger.info("successfully signed up user : " + new_user_object.email)
+            logger.info("successfully signed up user : " + new_user_object.email);
             dbprocs.addUser(userRecord)
     		    .then(function(success){
+                    logger.info("adding user to db: " + new_user_object.email)
                     resolve(userRecord);
                 })
                 .catch(function(err){
                     logger.error(err);
                 })
+            resolve(userRecord);
   		})
   		.catch(function(error) {
             logger.error("failed to sign up user : " + new_user_object.email + " with error : " + error.message)

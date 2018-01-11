@@ -25,54 +25,78 @@
     <!-- custom js -->
     <script type="text/javascript" src="./js/script.js"></script>
     <script type="text/javascript" src="./js/utils.js"></script>
+    <script type="text/javascript" src="./js/storage.js"></script>
     <script type="text/javascript" src="./js/auth.js"></script>
+    <script type="text/javascript" src="./js/processes.js"></script>
+
 </head> 
 
 
 <body>
     <div class="no-padding" id="app">
 
-        <div><!-- Navbar 
-            <div class="home-navbar navbar-fixed-top">
+        <div><!-- Navbar -->
+            <div class="navbar navbar-fixed-top">
                 <div>
                     <div class="navbar-header">
                         <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="glyphicon glyphicon-menu-hamburger" id="navbar-hbg"></span>
                         </button>
-                        <a class="home-navbar-brand" href="/"><i>Click-Tracker</i></a>
-                    </div>
-                    <div class="navbar-collapse collapse" style="color: red;">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li onclick="logOut()" ><a>Log out</a></li>
-                        </ul>
+                        <a class="navbar-brand" id="navbar-brand" href="/"><i></i></a>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div><!--/ Navbar -->
 
-        <div class="home-content container-fluid no-padding"><!-- content -->
-            <div class="col-sm-2"></div>
+        <div class="home-content no-padding"><!-- content -->
+            <div class="col-sm-1"></div>
+            
+            <div class="col-sm-10">
+                <div class="col-sm-8 hidden website-metric-display"></div>
+                <div class="website-listing animated fadeIn" id="website-listing">
 
-            <div class="col-sm-8">
-
-
-                <div class="card website-card">
-                    <div class="website-card-image-div">
-                        <img class="card-img-top website-card-image" src="http://www.lanceapplication.com">
+                    <div class="col-sm-4 website-card-container">
+                        <div class="card website-card" onclick="toggleWebMetricDisplayOpen()" >
+                            <div class="website-card-image-div no-padding">
+                                <img class="card-img-top website-card-image no-padding" src="./imgs/img.jpeg">
+                            </div>
+                            <div class="card-body website-card-body">
+                                <h5 class="card-title website-card-title">Card title</h5>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body website-card-body">
-                        <h5 class="card-title website-card-title">Card title</h5>
+
+                    <div class="col-sm-4 website-card-container">
+                        <div class="card website-card" onclick="toggleWebMetricDisplayClose()" >
+                            <div class="website-card-image-div no-padding">
+                                <img class="card-img-top website-card-image no-padding" src="./imgs/img.jpeg">
+                            </div>
+                            <div class="card-body website-card-body">
+                                <h5 class="card-title website-card-title">Card title</h5>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="col-sm-4 website-card-container">
+                        <div class="card website-card" onclick="toggleWebMetricDisplayOpen()" >
+                            <div class="website-card-image-div no-padding">
+                                <img class="card-img-top website-card-image no-padding" src="./imgs/img.jpeg">
+                            </div>
+                            <div class="card-body website-card-body">
+                                <h5 class="card-title website-card-title">Card title</h5>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-
-
-
-
             </div>
-            <div class="col-sm-2"></div>
+
+            <div class="col-sm-1"></div>
         </div><!--/ content -->
 
     </div>
+
+    <button onclick="getWebsitesForAUser()">qwqqw</button>
 </body>
 
 </html>

@@ -149,7 +149,6 @@ body {
     background: white;
     border: 1px solid #bdbdbd;
     width: 100%;
-
     -moz-box-shadow:    inset 0 1px 5px #BDBDBD;
     -webkit-box-shadow: inset 0 1px 5px #BDBDBD;
     box-shadow:         inset 0 1px 5px #BDBDBD;
@@ -158,7 +157,7 @@ body {
 .navbar {
     border-top: 1px solid #E0E0E0;
     height: 90px !important;
-    color: transparent !important;
+    background: #fff !important;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -189,12 +188,14 @@ body {
     font-family: Pacifico;
     margin-top: 17px;
     color: #DD2C00 !important;
-
     padding-left: 20px;
 }
 /*================================
 //general//
 ================================*/
+.website-listing {
+}
+
 .website-card {
     width: 250px !important;
     height: 250px !important;
@@ -217,7 +218,7 @@ body {
 .website-card-image-div {
     width: 250px !important;
     height: 200px !important;
-    border-bottom: 1px solid #bdbdbd;
+    border-bottom: 1px solid #757575;
 }
 
 .website-card-image {
@@ -239,8 +240,11 @@ body {
 }
 
 .home-content {
-    height: 100% !important;
-    border-bottom: 1px solid #BDBDBD;
+    height: 100%;
+}
+
+.margined-card {
+    margin-top: 20px;
 }
 
 .info-text {
@@ -263,4 +267,14 @@ body {
    background: #e0e0e0;
    height: 15% !important;
    border-bottom: 1px solid #9E9E9E;
+}
+
+.website-metric-display {
+    background: #e9e9e9;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.website-thumbnail-row{
+    margin-top: 20px !important;
 }

@@ -5,6 +5,7 @@
 
 var dbprocs    	= require('./dbprocs.js');
 var utils    	= require('./utils.js');
+var logger      = require('./logger.js');
 
 //
 module.exports.updateTrackingData = function (payload) {
@@ -33,7 +34,7 @@ module.exports.updateTrackingData = function (payload) {
 
 //
 module.exports.startWebsiteTracking = function(website, user) {
-
+	logger.info("starting web tracking process for website: '" + website + "' for user '" + user.displayName + "'");
 	//
 	return new Promise( function(resolve, reject){
 		dbprocs.getUser(user)

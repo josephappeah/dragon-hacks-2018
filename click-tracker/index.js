@@ -13,6 +13,7 @@ var auth 		= require('./utils/fb-auth.js');
 var processes 	= require('./utils/processes.js');
 var structs 	= require('./storage/structs.js');
 var logger      = require('./utils/logger.js');
+var dbprocs     = require('./utils/dbprocs.js');
 
 service.use(bodyParser.json());
 
@@ -54,6 +55,7 @@ service.post(config.version + '/signup', (req,res,next) => {
 
 	auth.signup(user)
 		.then( function(success) {
+			console.log("done");
 			res.send(success);
 		});
 });
@@ -123,6 +125,23 @@ service.post(config.version + '/end-website-tracking', (req,res,next) => {
 			} else {
 				//
 				processes.endWebsiteTracking(req.body.website, req.body.user)
+					.then(function(success) {
+						res.json(success);
+					});
+			}
+		});
+});
+
+// END TRACKING A NEW WEBSITE
+service.post(config.version + '/get-websites-for-user', (req,res,next) => {
+	//
+	auth.auth(req.body.token)
+		.then(function(status) { 
+			if (!status) {
+				res.send("invalid token");
+			} else {
+				//
+				dbprocs.getWebsitesForUser(req.body.user)
 					.then(function(success) {
 						res.json(success);
 					});

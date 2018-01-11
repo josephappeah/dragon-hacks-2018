@@ -1,6 +1,8 @@
 //==============================
 //	author 	: josephappeah
 //==============================
+
+//
 module.exports.user = {
 	'email' : null,
 	'emailVerified' : false,
@@ -9,4 +11,16 @@ module.exports.user = {
 	'displayName' : null,
 	'photoURL': 'http://www.example.com/12345678/photo.png',
 	'disabled': false
+}
+
+//
+module.exports.tracking = {
+	'divs' : []
+}
+
+//
+module.exports.tracking_div = {
+	'name' : null,
+	'update_times' : [],
+	'count' : 0
 }

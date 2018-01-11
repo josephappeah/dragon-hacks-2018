@@ -17,6 +17,31 @@ function logIn () {
     ).then(function (response) 
       { 
           //
+          updateToken(response.data.token);
+          updateUser(response.data.user);
+
+          //
+          navigateTo("home");
+      }
+    ).catch(function (error) {
+          console.log(error);
+    }); 
+}
+
+//
+function logInWithCreds (_email, _password) {
+  //
+    var url = server + "/login";
+
+    //
+    axios.post(url,
+      { 
+        email    : _email,
+        password : _password
+      }
+    ).then(function (response) 
+      { 
+          //
           console.log(response.data)
           updateToken(response.data.token);
           updateUser(response.data.user);
@@ -54,6 +79,7 @@ function logOut () {
     }); 
 }
 
+//
 function signUp () {
 	//
     var url = server + "/signup";
@@ -69,8 +95,7 @@ function signUp () {
     ).then(function (response) 
       {
           //
-          updateToken(response.data.token);
-          updateUser(response.data.user);
+          logInWithCreds($("#signup-email").val(), $("#signup-password").val());
 
           //
           navigateTo("home");

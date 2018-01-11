@@ -25,20 +25,27 @@ module.exports.addUser = function (user) {
 		con.getConnection(function(err, conn) {
 	  		if (err) {
 	  			logger.error(err);
-	  		}
-			conn.query(query, function(err, rows, fields) {
-	  			if (err) {
-	  				logger.error(err);
-	  			}
-			    //resolve(JSON.parse(JSON.stringify(rows))[0].status);
-			    conn.release();
-			});
+	  			resolve(false);
+	  		} else {
+				conn.query(query, function(err, rows, fields) {
+		  			if (err) {
+		  				logger.error(err);
+		  				resolve(false);
+		  			} else {
+				    	resolve(JSON.parse(JSON.stringify(rows))[0]);
+				   	 	conn.release();
+				   	}
+				});
+			}
 		});
 	});
 }
 
 //
 module.exports.getUser = function (user) {
+	//
+	logger.log("getting sql db object for fb user: '" + user.displayName + "'")
+
 	//
 	var query = "SELECT * FROM users WHERE uid = '" + user.uid + "'";
 
@@ -47,20 +54,26 @@ module.exports.getUser = function (user) {
 		con.getConnection(function(err, conn) {
 	  		if (err) {
 	  			logger.error(err);
-	  		}
-			conn.query(query, function(err, rows, fields) {
-	  		if (err) {
-	  			logger.error(err);
-	  		}
-			    //resolve(JSON.parse(JSON.stringify(rows))[0].status);
-			    conn.release();
-			});
+	  			resolve(false)
+	  		} else {
+				conn.query(query, function(err, rows, fields) {
+		  		if (err) {
+		  			logger.error(err);
+		  			resolve(false)
+		  		} else {
+
+					resolve(JSON.parse(JSON.stringify(rows))[0]);
+					conn.release();
+				}
+				});
+			}
 		});
 	});
 }
 
 //
 module.exports.deleteUser = function (user) {
+
 	//
 	var query = "DELETE FROM users WHERE uid = '" + user.uid + "'";
 
@@ -69,20 +82,28 @@ module.exports.deleteUser = function (user) {
 		con.getConnection(function(err, conn) {
 	  		if (err) {
 	  			logger.error(err);
-	  		}
-			conn.query(query, function(err, rows, fields) {
-	  		if (err) {
-	  			logger.error(err);
-	  		}
-			    //resolve(JSON.parse(JSON.stringify(rows))[0].status);
-			    conn.release();
-			});
+	  			resolve(false);
+	  		} else {
+				conn.query(query, function(err, rows, fields) {
+		  		if (err) {
+		  			logger.error(err);
+		  			resolve(false);
+		  		} else {
+					
+					resolve(JSON.parse(JSON.stringify(rows))[0]);
+					conn.release();
+				}
+				});
+			}
 		});
 	});
 }
 
 //
 module.exports.addWebsite = function (website, user) {
+
+	//
+	logger.info("adding tracking for website: '" + website);
 	//
 	var query = "INSERT INTO websites (name, owner , owner_uid, tracking, active) VALUES ('"+ website +"', '"+ user.id +"', '"+ user.uid+"', null, true)";
 
@@ -90,38 +111,72 @@ module.exports.addWebsite = function (website, user) {
 	return new Promise (function (resolve, reject) {
 		con.getConnection(function(err, conn) {
 	  		if (err) {
-	  			logger.error(err);
-	  		}
-			conn.query(query, function(err, rows, fields) {
-	  		if (err) {
-	  			logger.error(err);
-	  		}
-			    //resolve(JSON.parse(JSON.stringify(rows))[0].status);
-			    conn.release();
-			});
+	  			logger.error(err.error);
+	  			resolve (false);
+	  		} else {
+				conn.query(query, function(err, rows, fields) {
+		  		if (err) {
+		  			logger.error(err);
+		  			resolve (false);
+		  		} else {
+				    resolve(JSON.parse(JSON.stringify(rows))[0]);
+				    conn.release();
+				}
+				});
+			}
 		});
 	});
 }
 
 
 //
-module.exports.getWebsite = function (website) {
+module.exports.getWebsite = function (website, user) {
 	//
-	var query = "SELECT * FROM websites WHERE name = '"  + website + "'";
+	var query = "SELECT * FROM websites WHERE name = '" + website + "' AND owner_uid = '" + user.uid +"'";
 
 	//
 	return new Promise (function (resolve, reject) {
 		con.getConnection(function(err, conn) {
 	  		if (err) {
 	  			logger.error(err);
-	  		}
-			conn.query(query, function(err, rows, fields) {
+	  			resolve(false);
+	  		} else {
+				conn.query(query, function(err, rows, fields) {
+		  		if (err) {
+		  			logger.error(err);
+		  			resolve(false);
+		  		} else {
+				    resolve(JSON.parse(JSON.stringify(rows))[0]);
+				    conn.release();
+				}
+				});
+			}
+		});
+	});
+}
+
+//
+module.exports.getWebsitesForUser = function (user) {
+	//
+	var query = "SELECT * FROM websites WHERE owner_uid = '" + user.uid +"'";
+
+	//
+	return new Promise (function (resolve, reject) {
+		con.getConnection(function(err, conn) {
 	  		if (err) {
 	  			logger.error(err);
-	  		}
-			    //resolve(JSON.parse(JSON.stringify(rows))[0].status);
-			    conn.release();
-			});
+	  			resolve(false);
+	  		} else {
+				conn.query(query, function(err, rows, fields) {
+		  		if (err) {
+		  			logger.error(err);
+		  			resolve(false);
+		  		} else {
+				    resolve(JSON.parse(JSON.stringify(rows)));
+				    conn.release();
+				}
+				});
+			}
 		});
 	});
 }
@@ -136,14 +191,18 @@ module.exports.deleteWebsite = function (website, user) {
 		con.getConnection(function(err, conn) {
 	  		if (err) {
 	  			logger.error(err);
-	  		}
-			conn.query(query, function(err, rows, fields) {
-	  		if (err) {
-	  			logger.error(err);
-	  		}
-			    //resolve(JSON.parse(JSON.stringify(rows))[0].status);
-			    conn.release();
-			});
+	  			resolve(false);
+	  		} else {
+				conn.query(query, function(err, rows, fields) {
+		  		if (err) {
+		  			logger.error(err);
+		  			resolve(false);
+		  		} else {
+				    resolve(JSON.parse(JSON.stringify(rows))[0]);
+				    conn.release();
+				}
+				});
+			}
 		});
 	});
 }
@@ -159,14 +218,18 @@ module.exports.updateWebsiteTracking = function (website, data) {
 		con.getConnection(function(err, conn) {
 	  		if (err) {
 	  			logger.error(err);
-	  		}
-			conn.query(query, function(err, rows, fields) {
-	  		if (err) {
-	  			logger.error(err);
-	  		}
-			    //resolve(JSON.parse(JSON.stringify(rows))[0].status);
-			    conn.release();
-			});
+	  			resolve(false);
+	  		} else {
+				conn.query(query, function(err, rows, fields) {
+		  		if (err) {
+		  			logger.error(err);
+		  			resolve(false);
+		  		} else {
+				    resolve(JSON.parse(JSON.stringify(rows))[0]);
+				    conn.release();
+				}
+				});
+			}
 		});
 	});
 }

@@ -34,7 +34,7 @@ function getUser() {
 //
 function updateUser(user) {
 	if (typeof(Storage) !== "undefined") {
-	    localStorage.user = user;
+	    localStorage.user = JSON.stringify(user);
 	    return true;
 	} else {
 		return false;
